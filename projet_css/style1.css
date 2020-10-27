@@ -1,0 +1,19 @@
+body{
+	background-color:#CEF6EC;
+}
+#container col {background-color:#CEF6EC;}
+
+			
+			[class*="col-"] {
+  			background-color: #CEF6EC;
+  			border: 2px solid black;
+  			border-radius: 6px;
+  			line-height: 40px;
+  			text-align: center;
+			}
+
+			[class*="col-md-12 "] {background-color: #CEF6EC;}
+			[class*="col-md-10 "] {background-color: #CEF6EC;}
+
+			#content #sidebar .row {background-color:#CEF6EC;padding:10px;}
+			#content #sidebar #row .widget{background-color:#CEF6EC;}
