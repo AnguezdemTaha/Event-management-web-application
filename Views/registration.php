@@ -30,8 +30,8 @@
     <h2 class="wv-heading--subtitle">
        Lorem ipsum dolor sit amet! Neque porro quisquam est qui do dolor amet, adipisci velit...
     </h2>
-    <p id="erreur" hidden>
-        you have a error §§§
+    <p class="error" hidden>
+        
     </p>
    </div>
   </div>
@@ -49,6 +49,7 @@
 
         <div class="form-group">
          <input type="text" name="name"  class="form-control my-input champ" id="name" placeholder="Name">
+         <p class="namec" hidden>testestestesgkgzaeajzkgkjezgkajze </p>
         </div>
 
         <div class="form-group">

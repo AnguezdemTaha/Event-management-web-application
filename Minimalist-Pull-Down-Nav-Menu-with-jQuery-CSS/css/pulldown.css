@@ -1,0 +1,40 @@
+nav > ul {
+  font-size: 1em;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  width: 960px;
+  margin: 100px auto 0px;
+  font-size: 16px;
+}
+
+nav > ul > li {
+  width: 240px;
+  float: left;
+  position: relative;
+}
+
+nav > ul > li a {
+  display: block;
+  background: #16a085;
+  color: #fff;
+  padding: 5px 0px;
+  text-align: center;
+  text-decoration: none;
+}
+
+nav > ul > li a:hover { background: #1abc9c; }
+
+nav > ul > li:hover a + ul { /*    display: block;*/
+}
+
+nav > ul > li > ul {
+  position: absolute;
+  width: 100%;
+  left: 0px;
+  top: 100%;
+  display: none;
+}

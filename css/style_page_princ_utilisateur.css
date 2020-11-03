@@ -1,12 +1,12 @@
 body { 
-	background: url(../images/backround_img1.jpg) no-repeat center center fixed; 
+	background: url(../images/backreound_img1.jpg) no-repeat center center fixed; 
   	-webkit-background-size: cover;
   	-moz-background-size: cover;
   	-o-background-size: cover;
   	background-size: cover;
 }
 
-ul, li, ol {
+/*ul, li, ol {
      margin: 0px;
      padding: 0px;
      list-style: none;
@@ -23,7 +23,7 @@ ul, li, ol {
 ul.signup_signout_area li {
      float: left;
      padding-right: 10px;
-}
+}*/
 
 .regestration_form{
   background-color: #FFFAFA;
@@ -112,3 +112,137 @@ h2{
   h1{ font-size: 26px; }
   h2{ font-size: 20px; }
 } 
+
+.error{
+  color: #ff0000;
+}
+
+/*nav testing jquery css */
+/*nav > ul {
+  font-size: 1em;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+
+nav {
+  width: 960px;
+  margin: 100px auto 0px;
+  font-size: 16px;
+}
+
+nav > ul > li {
+  width: 240px;
+  float: left;
+  position: relative;
+}
+
+nav > ul > li a {
+  display: block;
+  background: #16a085;
+  color: #fff;
+  padding: 5px 0px;
+  text-align: center;
+  text-decoration: none;
+}
+
+nav > ul > li a:hover { background: #1abc9c; }
+
+nav > ul > li > ul {
+  position: absolute;
+  width: 100%;
+  left: 0px;
+  top: 100%;
+  display: none;
+}
+*/
+
+/*costume select option */
+
+.custom-select {
+  position: relative;
+  font-family: Arial;
+}
+
+.custom-select select {
+  display: none; /*hide original SELECT element: */
+}
+
+.select-selected {
+  background-color: DodgerBlue;
+}
+
+/* Style the arrow inside the select element: */
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
+}
+
+/* Point the arrow upwards when the select box is open (active): */
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent #fff transparent;
+  top: 7px;
+}
+
+/* style the items (options), including the selected item: */
+.select-items div,.select-selected {
+  color: #ffffff;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+}
+
+/* Style items (options): */
+.select-items {
+  position: absolute;
+  background-color: DodgerBlue;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+
+/* Hide the items when the select box is closed: */
+.select-hide {
+  display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+
+
+/*testing dropdown hover with css*/
+/*.dropdown{
+display: none;
+}*/
+
+
+ul {
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
+ul li {display: inline-block;}
+ul li:hover {background: #555;}
+ul li:hover ul {display: block;}
+ul li ul {
+  position: absolute;
+  width: 200px;
+  display: none;
+}
+ul li ul li {
+  background: #555;
+  display: block;
+}
+ul li ul li a {display:block !important;}
+ul li ul li:hover {background: #666;}
