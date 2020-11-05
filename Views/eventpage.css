@@ -1,0 +1,434 @@
+.website-logo {
+  /*centiring text of the element a*/
+  /*position: absolute;
+  top: 0px;
+  left: 0;
+  width: 0%;
+  height: 100px;
+  text-align: center;*/
+  /*for centring img*/
+  /*display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;*/
+  /*i wish it will be element posiition*/
+  position: absolute;
+  left: 50%;
+  top: 0px;
+}
+
+.menu-icon {
+  width: 35px;
+  height: 5px;
+  background-color: black;
+  margin: 6px 0;
+}
+
+
+
+/* The side navigation menu */
+.sidenav {
+  height: 100%; /* 100% Full-height */
+  width: 15%; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: #111; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #f1f1f1;
+  background: #55ACEE;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+  position: absolute;
+  top: 35px;
+  right: 5px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+  transition: margin-left .5s;
+  padding: 20px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+
+/*notification button */
+.notification {
+  background-color: #555;
+  color: white;
+  text-decoration: none;
+  padding: 15px 26px;
+  position: relative;
+  display: inline-block;
+  border-radius: 2px;
+
+  right:10px;
+}
+
+.notification:hover {
+  background: red;
+}
+
+.notification .badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  padding: 5px 10px;
+  border-radius: 50%;
+  background: red;
+  color: white;
+}
+
+
+/*notification block */
+.notification_block {
+  height: 40%; /* 100% Full-height */
+  width: 15%; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  right: 0;
+  background-color: #111; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+
+  display: none;
+}
+
+.notification_block a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 15px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+
+/* When you mouse over the navigation links, change their color */
+.notification_block a:hover {
+  color: #f1f1f1;
+  background: #55ACEE;
+}
+
+
+
+
+
+
+.event_image{
+  width: 100%; 
+  height: 100%;
+}
+
+/*stars cheked */
+.checked {
+  color: orange;
+}
+
+.eventblock_text{
+  display: inline;
+}
+
+/*like dislike button*/
+.fa {
+  font-size: 50px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.fa:hover {
+  color: darkblue;
+}
+
+/*buttons design coment participaion ..*/
+.participation {
+  background-color: #555;
+  color: white;
+  text-decoration: none;
+  padding: 15px 26px;
+  position: relative;
+  display: inline-block;
+  border-radius: 2px;
+
+  right:10px;
+
+  width: 100%;
+}
+
+.participation:hover {
+  background: red;
+}
+
+
+.comments {
+  background-color: #555;
+  color: white;
+  text-decoration: none;
+  padding: 15px 26px;
+  position: relative;
+  display: inline-block;
+  border-radius: 2px;
+
+  right:10px;
+
+  width: 100%;
+}
+
+.comments:hover {
+  background: red;
+}
+
+
+.graphs {
+  background-color: #555;
+  color: white;
+  text-decoration: none;
+  padding: 15px 26px;
+  position: relative;
+  display: inline-block;
+  border-radius: 2px;
+
+  right:10px;
+
+  width: 100%;
+}
+
+.graphs:hover {
+  background: red;
+}
+
+#more_text,.comments_block {display: none;}
+
+
+/* graphs animation to show flip card */
+
+/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+/*.flip-card {
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #f1f1f1;
+  
+}*/
+
+/* This container is needed to position the front and back side */
+/*.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+
+
+}*/
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+/*.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);*/
+  /*transform: translate(50px, 100px);*/
+/*}*/
+
+/* Position the front and back side */
+/*.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  /*backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+/*.flip-card-front {
+  background-color: #00008B;
+  color: black;
+
+  z-index: 2;
+  /* for firefox 31 */
+  /*transform: rotateY(0deg);
+
+
+}
+
+/* Style the back side */
+/*.flip-card-back {
+  background-color: dodgerblue;
+  color: white;
+  transform: rotateY(180deg);
+}
+
+/*............ modal*/
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
+}
+
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5px auto; /* 15% from the top and centered */
+  border: 1px solid #888;
+  width: 60%; /* Could be more or less, depending on screen size */
+
+  max-height:95%; /* not all time need to be done en js depent on content form */
+  min-height:60%;
+  overflow: scroll;
+}
+
+/* The Close Button */
+.close {
+  /* Position it in the top right corner outside of the modal */
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+/* Close button on hover */
+.close:hover,
+.close:focus {
+  color: red;
+  cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)}
+  to {-webkit-transform: scale(1)}
+}
+
+@keyframes animatezoom {
+  from {transform: scale(0)}
+  to {transform: scale(1)}
+}
+
+
+/*css to card event */
+.cardevent_block {
+  background-color: #00FFFF;
+  border-radius: 2%;
+  border: 2px solid #73AD21;
+
+
+}
+
+.cardevent_block p{
+  font-size: 15px;
+  font-family: "Times New Roman", Times, serif;
+
+}
+
+
+/*[class*='col-'] p{
+  padding: 10px;
+}
+
+.row{
+  /*border: 1px groove ;*/
+ /* border-radius: 0%;
+  
+
+  border-bottom: groove;
+}*/
+
+
+
+#sittings_block {
+  overflow: scroll;
+}
+
+
+.editname_block ,.editpassword_block, .editemail_block {
+  display: none;
+}
+
+
+/*reportevent  block */
+.reportevent_block {
+  height: 80%; /* 100% Full-height */
+  width: 30%; /* 0 width - change this with JavaScript */
+  position: absolute; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 20%; /* Stay at the top */
+  right: 0;
+  background-color: #111; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+
+  display: none;
+}
+
+
+
+/* Pagination links */
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+}
+
+/* Style the active/current link */
+.pagination a.active {
+  background-color: dodgerblue;
+  color: white;
+}
+
+/* Add a grey background color on mouse-over */
+.pagination a:hover:not(.active) {background-color: #ddd;}
+
+.paginations{
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+}

@@ -1,0 +1,3 @@
+.users_table, .userdemands_table, .eventdemands_table, .reports_table{
+	display: none;
+}

@@ -15,8 +15,14 @@
             <div class="navbar-form navbar-right inline-form">
                 
                     <button id="register-signin" type="button" class="btn btn-success">
-                        <a href="#"><span  class=" glyphicon glyphicon-user"></span>REGISTER/SIGN IN</a>
+                        <a href="#">Add even</a>
                     </button>
+
+                    
+                    <a href="#" class="notification">
+                        <span>Inbox</span>
+                        <span class="badge">3</span>
+                    </a>
                
             </div>
 
