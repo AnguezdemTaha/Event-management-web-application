@@ -99,7 +99,7 @@ $a[] = "Vicky";
             $movie = array( "title" => "Rear Window",
                 "director" => "Alfred Hitchcock",
                 "year" => 1954,
-                "success" => 1 ); 
+                "Success" => 1 ); 
             echo json_encode($movie);   
         }
         else{ // Sinon

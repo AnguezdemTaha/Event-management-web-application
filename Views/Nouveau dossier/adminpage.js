@@ -1,8 +1,7 @@
 $(document).ready(function(){
 
-var 
-	$mySidenav = $('#mySidenav'),
-	
+var $mySidenav = $('#mySidenav'),
+
 	$userlist_item=$('.userlist_item'),
 	$userdemands_item=$('.userdemands_item'),
 	$eventdemands_item=$('.eventdemands_item'),

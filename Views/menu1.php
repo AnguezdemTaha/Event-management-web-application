@@ -14,12 +14,10 @@
             
             <div class="navbar-form navbar-right inline-form">
                 
-                    <button id="register-signin" type="button" class="btn btn-success">
+                    <button id="addevent_button" type="button" class="btn btn-success">
                         <a href="#">Add even</a>
                     </button>
-
-                    
-                    <a href="#" class="notification">
+                    <a id="notification_button" href="#" class="notification">
                         <span>Inbox</span>
                         <span class="badge">3</span>
                     </a>

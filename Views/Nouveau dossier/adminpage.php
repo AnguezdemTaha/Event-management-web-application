@@ -3,8 +3,8 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<link rel="stylesheet"  href="general.css">
-    <link rel="stylesheet"  href="eventpage.css">
+		<link rel="stylesheet"  href="eventpage.css">
+    <link rel="stylesheet"  href="adminpage.css">
 		<link href="../bootstrap-3.4.1-dist/css/bootstrap.css" rel="stylesheet">
 		<link href="../bootstrap-3.4.1-dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -22,43 +22,64 @@
 	<body >
 			
 		<?php include("menu1.php"); ?>
-    
-    <?php require("sidenav_homepage.php"); ?>
+
+
+    <?php require("sidenav_eventpage.php"); ?>
 
     <?php require("notification.php"); ?>
 
-    <br><br>
-
-    <div id="main">
-
-      <!--if user/event_craetor -->
-      <div id="id01" class="modal">
-        <?php require("account_sittings.php"); ?>
-      </div>
-
-      <div id="id02" class="modal2">
-        <?php require("create_event.php"); ?>
-      </div>
-
-      <?php require("event_infos.php"); ?>
-
-      <?php require("pagination.php"); ?>
-      
-      <!--if admin -->
-      <?php require("users_table.php"); ?>
-
-      <?php require("users_demands.php"); ?>
-
-      <?php require("events_demands.php"); ?>
-
-      <?php require("reports_table.php"); ?>
-
-      <!-- + usercard -->
 
 
-    </div>
 
-  <script src="../js/jquery-3.5.1.min.js"></script>
-  <script src="eventpage.js"></script>
+
+<br><br>
+<div id="main">
+
+<?php require("users_table.php"); ?>
+
+<?php require("users_demands.php"); ?>
+
+<?php require("events_demands.php"); ?>
+
+<?php require("reports_table.php"); ?>
+
+<div id="id01" class="modal">     
+  <?php require("account_sittings.php"); ?>
+</div>
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+		
+
+<script src="../js/jquery-3.5.1.min.js"></script>
+<script src="eventpage.js"></script>
+<script src="adminpage.js"></script>
+
+<script>
+// Get the modal , have a prob in traduction this to jquery, needd ot be done later
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+
 	</body>
 </html>
