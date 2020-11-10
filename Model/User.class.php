@@ -11,14 +11,17 @@ protected $user_accepted;
 //private $service;
 
 //constunt here
-function __construct($user_mail, $user_password, $user_profile_picture, $user_type, $user_phone, $user_accepted) {
+/*function __construct($user_mail, $user_password, $user_profile_picture, $user_type, $user_phone, $user_accepted) {
     $this->user_mail = $name;
     $this->user_password = $user_password;
     $this->user_profile_picture = $user_profile_picture;
     $this->user_type = $user_type;
     $this->user_phone = $user_phone;
     $this->user_accepteduser_mail = $user_accepted;
-  }
+  }*/
+ function __construct(){
+   
+ } 
 
 /*getter + setters*/
 //getters

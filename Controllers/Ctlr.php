@@ -1,6 +1,7 @@
 <?php
   include('../Model/Model_user.php');
   //include('formNewEmploye.php');
+  include('../Model/user.class.php');
 
   class controlleur {
 private $action;
@@ -15,8 +16,32 @@ $this->action="allusers";
 
 public function allAction()
 {
-$users=$this->modele->allusers();
-include('../Views/index.php');
+$user= new User();
+$user->setMail($_POST['action']);
+$id_table=$this->modele->selectUserIdByMail($user);
+//$data=$users[0];
+//include('../Views/index.php');
+//ajaxtest
+$student_id=0;
+foreach ($id_table as $id) {
+        $student_id=$id[0]; //????
+}
+$test=$student_id[0];
+$movie1 = array( "title" => "Rear Window jqeury mvc xxxxx",
+                "director" => "Alfred Hitchcock",
+                "year" => 1954,
+                "Success" => 1 );
+//$test=json_encode($movie1);
+
+$movie = array( "Rear Window jqeury mvc",
+                "Alfred Hitchcock",
+                1954,
+                1 ,
+                $movie1);
+
+echo json_encode($student_id); 
+
+
 //$this->vue=new v_all("all");
 //$this->vue->all($employes);
 //$this->vue->afficher();
@@ -49,6 +74,9 @@ if(isset($_GET['action']))
 $action=$_GET['action'];
 if(isset($_POST['action']))
 $action=$_POST['action'];
+/*testing jquery post methode */
+//if( isset($_POST['action'])$action=$_POST['action'];
+
 switch($action)
 {
 case 'allusers' :
@@ -61,6 +89,11 @@ break;
 case 'modf' :
 $this->addAction();
 break;
+//jquerytest
+case 'showme' :
+$this->allAction();
+break;
+
 }
 }
 

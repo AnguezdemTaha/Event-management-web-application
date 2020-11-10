@@ -8,11 +8,12 @@ private $event_end_date;
 private $event_description;
 private $event_picture;
 private $event_creation_date;
+private $event_acceped;
 
 private $club;//obj
 
 //constunt here
-function __construct($event_name, $event_start_date, $event_end_date, $event_description, $event_picture, $event_creation_date, $club) {
+/*function __construct($event_name, $event_start_date, $event_end_date, $event_description, $event_picture, $event_creation_date, $club) {
     $this->event_name = $event_name;
     $this->event_start_date = $event_start_date;
     $this->event_end_date = $event_end_date;
@@ -21,6 +22,9 @@ function __construct($event_name, $event_start_date, $event_end_date, $event_des
     $this->event_creation_date = $event_creation_date;
 
     $this->club = $club;
+  }*/
+function __construct(){
+
   }
 /*getter + setters*/
 //getters
@@ -47,6 +51,10 @@ public function getPicture()
 public function getCreation_date()
     {
         return $this->event_creation_date;
+    }
+public function getAccepted()
+    {
+        return $this->event_acceped;
     }
 public function getClub()
     {
@@ -83,6 +91,11 @@ public function setPicture($event_picture)
 public function setCreation_date($event_creation_date)
     {
         $this->event_creation_date = $event_creation_date;
+        return $this;
+    }
+public function seAccepted($event_acceped)
+    {
+        $this->event_acceped = $event_acceped;
         return $this;
     }
 public function setClub($event_club)

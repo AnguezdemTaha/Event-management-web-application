@@ -28,19 +28,25 @@ $(document).ready(function(){
         e.preventDefault();
  
         $.post(
-            'gethint.php', // Un script PHP que l'on va créer juste après
+            '../../Controllers/Ctlr.php', // Un script PHP que l'on va créer juste après
             {
+                //test to mvc
+                action : "showme",
+
                 username : $("#username").val(),  // Nous récupérons la valeur de nos input que l'on fait passer à connexion.php
                 password : $("#password").val()
             },
  
             function(data){
  
-                alert(data.title);
+                alert(data);
+                
 
                 var jsonData = JSON.parse(data);
-                alert(jsonData.title);
-
+                //how to parcour list json elemt i dont know even if its a json too bcs no particulare indices mybe numbres ???
+                //var jsonData2 =JSON.parse(jsonData[4]);
+                //alert(jsonData[0].user_mail);
+            
 
                 if(data.Success == 1){
                      // Le membre est connecté. Ajoutons lui un message dans la page HTML.

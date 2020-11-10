@@ -8,14 +8,16 @@ private $feedback_date;
 private $feedback_description;
 private $feedback_note;
 
-function __construct($event, $user, $feedback_date, $feedback_description, $feedback_note) {
+/*function __construct($event, $user, $feedback_date, $feedback_description, $feedback_note) {
     $this->event = $event;
     $this->user = $user;
     $this->feedback_date = $feedback_date;
     $this->feedback_description = $feedback_description;
     $this->feedback_note = $feedback_note;
-  }
-
+  }*/
+function __construct(){
+    
+}
 /*getter + setters*/
 //getters
 public function getDate()
