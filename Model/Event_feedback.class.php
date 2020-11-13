@@ -2,6 +2,8 @@
   
   class Event_feedback
 {
+private $event_feedback_id;
+
 private $event;
 private $user;
 private $feedback_date;
@@ -20,6 +22,10 @@ function __construct(){
 }
 /*getter + setters*/
 //getters
+public function getId()
+    {
+        return $this->event_feedback_id;
+    }
 public function getDate()
     {
         return $this->feedback_date;
@@ -41,7 +47,12 @@ public function getNote()
         return $this->feedback_date;
     }
 //setters
-public function setDate($report_date)
+public function setId($event_feedback_id)
+    {
+        $this->event_feedback_id = $event_feedback_id;
+        return $this;
+    }
+public function setDate($feedback_date)
     {
         $this->feedback_date = $feedback_date;
         return $this;

@@ -2,6 +2,8 @@
   
   class Event
 {
+private $event_id;
+
 private $event_name;
 private $event_start_date;
 private $event_end_date;
@@ -28,6 +30,10 @@ function __construct(){
   }
 /*getter + setters*/
 //getters
+public function getId()
+    {
+        return $this->event_id;
+    }
 public function getName()
     {
         return $this->event_name;
@@ -62,6 +68,11 @@ public function getClub()
     } 
 
 //setters
+public function setId($event_id)
+    {
+        $this->event_id = $event_id;
+        return $this;
+    }
 public function setName($event_name)
     {
         $this->event_name = $event_name;

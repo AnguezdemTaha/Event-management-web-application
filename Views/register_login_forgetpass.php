@@ -21,14 +21,14 @@
   <div class="form-display " id="login">
     <center><h1>Login</h1></center>
     <br><br>
-		<form  class=" animate" id="myForm" method="POST" action="">
+		<form  class=" animate" id="myForm" method="POST" action="../Controllers/Controller_user.php?action=Login">
 			<div class="imgcontainer">
     		<img src="img_avatar2.png" alt="Avatar" class="avatar">
   		</div>
       <!--message de validation des infos database-->
  			<center><h4 class = "form-signin-heading"><?php if(isset($msg)) echo $msg;else echo ''; ?></h4></center>
-			<input class="form-control" type="text" name="lastName" id="lastName" placeholder="Enter Username">
-      <input class="form-control" type="password" name="pwd1" id="pwd1"  placeholder="Enter Password">
+			<input class="form-control" type="text" name="mail" id="mail" placeholder="Enter Mail">
+      <input class="form-control" type="password" name="password" id="password"  placeholder="Enter Password">
       <input type="checkbox" checked="checked" name="remember"> Remember me
       <center>
         <button class="btn btn-primary" type="submit"  ><span class="glyphicon glyphicon-briefcase"></span> SE CONNECTER</button>

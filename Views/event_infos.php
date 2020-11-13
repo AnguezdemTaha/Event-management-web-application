@@ -1,3 +1,9 @@
+
+<?php if($events != null){ 
+  foreach ($events as $event) { ?>
+  
+
+
 <div id="event_infos" class="flip-card">
 <div class="flip-card-inner">
 <!--front of our event card -->
@@ -8,7 +14,7 @@
       <div class="col-md-4 col-lg-4">
         <div class="row">
           <div class="col-md-6 col-lg-6">
-            <p>title :</p>
+            <p>title : <?php echo $event["event_name"]?></p>
           </div>
           <div class="col-md-6 col-lg-6">
             <!--prob :inline -->
@@ -139,3 +145,7 @@
 </div>
 </div>
 </div>
+
+
+
+<?php } }?>

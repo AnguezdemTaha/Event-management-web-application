@@ -2,6 +2,8 @@
   
   class User
 {
+protected $user_id;
+
 protected $user_mail;
 protected $user_password;
 protected $user_profile_picture;
@@ -25,6 +27,10 @@ protected $user_accepted;
 
 /*getter + setters*/
 //getters
+public function getId()
+    {
+        return $this->user_id;
+    }
 public function getMail()
     {
         return $this->user_mail;
@@ -51,6 +57,11 @@ public function getAccepted()
     }
 
 //setters
+public function setId($user_id)
+    {
+        $this->user_id = $user_id;
+        return $this;
+    }
 public function setMail($user_mail)
     {
         $this->user_mail = $user_mail;

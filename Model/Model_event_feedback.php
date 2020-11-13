@@ -27,18 +27,18 @@
       return $user_id;
     }
 
-    public function selectFeedbackById($feedback_id){
+    public function selectFeedback($feedback){
       $query=$this->db->prepare('select * from event_feedback where feedback_id= ?');
-      $query->execute([$feedback_id]);
+      $query->execute([$feedback->getId()]);
       return $query->fetchAll();
     }
 
     
 
-    public function addFeedback($feedback, $event_id,){//used in send demand event bu the club  rq: comment containe attr user so no neeed to declare user too in attr
+    public function addFeedback($feedback){//used in send demand event bu the club  rq: comment containe attr user so no neeed to declare user too in attr
       $user_id=$this->selectUserIdByEvent($feedback);
       $query=$this->db->prepare('INSERT INTO event_feedback (`user_id`, `event_id`, `feedback_note`, `feedback_date`, `feedback_description`) VALUES (?, ?, ?, ?, ?, ?)');
-      $query->execute([$user_id, $event_id, $feedback->getNote(), $feedback->getDate(), $feedback->getDescription()]); 
+      $query->execute([$feedbakc->getUser()->getId(), $feedbakc->getEvent()->getId(), $feedback->getNote(), $feedback->getDate(), $feedback->getDescription()]); 
     }
     
     ////

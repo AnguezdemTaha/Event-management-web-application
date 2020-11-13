@@ -1,10 +1,15 @@
-
+<?php 
+    if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    } 
+?>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<link rel="stylesheet"  href="general.css">
-    <link rel="stylesheet"  href="eventpage.css">
+		<link rel="stylesheet"  href="../css/general.css">
+    <link rel="stylesheet"  href="../css/eventpage.css">
 		<link href="../bootstrap-3.4.1-dist/css/bootstrap.css" rel="stylesheet">
 		<link href="../bootstrap-3.4.1-dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -21,11 +26,11 @@
 	
 	<body >
 			
-		<?php include("menu1.php"); ?>
+		<!--<?php //include("menu1.php"); ?> -->
     
-    <?php require("sidenav_homepage.php"); ?>
+    <!--<?php //require("sidenav_homepage.php"); ?> -->
 
-    <?php require("notification.php"); ?>
+    <!-- <?php //require("notification.php"); ?> -->
 
     <br><br>
 
@@ -59,6 +64,6 @@
     </div>
 
   <script src="../js/jquery-3.5.1.min.js"></script>
-  <script src="eventpage.js"></script>
+  <script src="../js/eventpage.js"></script>
 	</body>
 </html>

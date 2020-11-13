@@ -1,56 +1,96 @@
 <?php
-  include 'Db_connect.php';
-  //include 'user.class.php'
-  class Model_event_reply {
+  include('../Model/Model_user.php');
+  //include('formNewEmploye.php');
+  include('../Model/event.class.php');
 
+  class controlleur_comment_reply {
+  private $action;
+  private $model;
+  private $vue;
 
-    private $db;
-    public function __construct(){
-      $dbcon = new Db_connect(); 
-       // this is not needed in your case
-       // you can use $this->conn = $this->connect(); without calling parent()
-      $this->db = $dbcon->connect();
+  public function __construct()
+  {
+  $this->model=new Model_user ();
+  $this->action="allusers";
+  }
+
+  public function selectReplyAction(){
+    $reply= new Reply();
+    $reply->setId($_POST['reply_id']);
+    $this->model->selectReply($comment);
+    
     }
-
-    //function utilitaire help us to get id of the event club(as user)
-    public function selectUserIdByReply($reply){
-      $query=$this->db->prepare('select user_id from user where user_mail= ?');
-      $query->execute([$reply->getUser()->getMail()]);
-      return $query->fetchAll();
-      //return the id user club
-      //selectidbymail for geting id studnet and ez add on the other table :studnet
-      $id_table= $query->fetchAll();;//its a table
-      $user_id=0;
-      foreach ($id_table as $id) {
-        $user_id=$id[0]; //????
-      }
-      return $user_id;
-    }
-
-    public function selectReplyById($reply_id){
-      $query=$this->db->prepare('select * from event_reply where reply_id= ?');
-      $query->execute([$reply_id]);
-      return $query->fetchAll();
-    }
-
+  public function addReplyAction(){
+    $reply= new Reply();
+    $reply->setDate($_POST['date']);
+    $reply->setContent($_POST['content']);
+    $user= new User();
+    $user->setId($_POST("user_id"));
+    $comment= new Comment();
+    $comment->setId($_POST("comment_id"));
+    $reply->setUser($user);
+    $reply->setEvent($event);
     
 
-    public function addReply($reply, $comment_id,){//used in send demand event bu the club  rq: comment containe attr user so no neeed to declare user too in attr
-      $user_id=$this->selectUserIdByEvent($reply);
-      $query=$this->db->prepare('INSERT INTO comment_reply (`user_id`, `comment_id`, reply_content`, `reply_date`) VALUES (?, ?, ?, ?)');
-      $query->execute([$user_id, $comment_id, $reply->getContent(), $reply->getDate()]); 
+    $this->model->addReply($reply);
+    
     }
-    public function updateReply($reply, $reply_id){
-      $query=$this->db->prepare('UPDATE comment_reply set reply_content = ? WHERE reply_id = ?');
-      $query->execute([$reply->getContent(), $reply_id]);
+  public function updateReplyAction(){
+    $reply= new Reply();
+    $reply->setId($_POST['reply_id']);
+    $reply->setDate($_POST['date']);
+    $reply->setContent($_POST['content']);
+    $user= new User();
+    $user->setId($_POST("user_id"));
+    $comment= new Comment();
+    $comment->setId($_POST("comment_id"));
+    $reply->setUser($user);
+    $reply->setEvent($event);
+
+    $this->model->updateReply($reply);
+    
     }
-    public function deleteReply($reply_id){
-      $query=$this->db->prepare('DELETE FROM reply_reply WHERE reply_id = ?');
-      $query->execute($reply_id);
+  public function deleteReplyAction(){
+    $reply= new Reply();
+    $reply->setDate($_POST['reply_id']);
+    $this->model->deleteReply($reply);
+   
     }
 
-    
-    
+  
+  
+
+  public function action(){
+    $action="selectAllStudents";
+    if(isset($_GET['action']))$action=$_GET['action'];
+    if(isset($_POST['action']))$action=$_POST['action'];
+    switch($action){
+      case 'selectReply' :
+      $this->selectReplyAction();
+      break;
+      case 'addReply' :
+      $this->addReplyAction();
+      break;
+      case 'updateReply' :
+      $this->updateReplyAction();
+      break;
+      case 'deleteReply' :
+      $this->deleteReplyAction();
+      break;
+     
+      
+      
+      
+
+    }
+  }
 
   }
+  // call fonction action() bcs you have last page passed to controller/... witch cotinues parametre and the action will call the appropiete fonction ezez
+
+  //presque router
+  $c=new controlleur();
+  $c->action();
+
+
 ?>

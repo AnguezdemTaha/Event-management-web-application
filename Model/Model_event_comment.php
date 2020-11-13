@@ -27,32 +27,32 @@
       return $user_id;
     }
 
-    public function selectCommentById($comment_id){
+    public function selectComment($comment){
       $query=$this->db->prepare('select * from event_comment where comment_id= ?');
-      $query->execute([$comment_id]);
+      $query->execute([$comment->getId()]);
       return $query->fetchAll();
     }
 
     
 
-    public function addComment($comment, $event_id,){//used in send demand event bu the club  rq: comment containe attr user so no neeed to declare user too in attr
-      $user_id=$this->selectUserIdByEvent($comment);
+    public function addComment($comment){//used in send demand event bu the club  rq: comment containe attr user so no neeed to declare user too in attr
+      //$user_id=$this->selectUserIdByEvent($comment);
       $query=$this->db->prepare('INSERT INTO event_comment (`user_id`, `event_id`, `comment_content`, `comment_date`) VALUES (?, ?, ?, ?)');
-      $query->execute([$user_id, $event_id, $comment->getContent(), $comment->getDate()]); 
+      $query->execute([$comment->getUser()->getId(), $comment->getEvent()->getId(), $comment->getContent(), $comment->getDate()]); 
     }
-    public function updateComment($comment, $comment_id){
+    public function updateComment($comment){
       $query=$this->db->prepare('UPDATE event_comment set comment_content = ? WHERE comment_id = ?');
-      $query->execute([$comment->getContent(), $comment_id]);
+      $query->execute([$comment->getContent(), $comment->getId()]);
     }
-    public function deleteComment($comment_id){
+    public function deleteComment($comment){
       $query=$this->db->prepare('DELETE FROM event_comment WHERE comment_id = ?');
-      $query->execute($comment_id);
+      $query->execute($comment->getId());
     }
 
     ////
-    public function selectAllCommentReplys($comment_id){
+    public function selectAllCommentReplys($comment){
       $query=$this->db->prepare('select * from comment_reply where comment_id = ?');
-      $query->execute([$comment_id]);
+      $query->execute([$comment->getId()]);
       return $query->fetchAll();
     }
 

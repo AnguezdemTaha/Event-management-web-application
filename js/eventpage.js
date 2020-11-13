@@ -65,7 +65,16 @@ var $comments = $('.comments'),
 var $report_button=$('.report_button'),
 	$reportevent_block=$('#reportevent_block');
 
+/*display none for index items on sidenav*/
+var $home_website=$('#home-website'),
+  $about_website=$('#about-website'),
+  $services_website=$('#services-website');
 
+$home_website.css('display','none');
+$about_website.css('display','none');
+$services_website.css('display','none');
+
+var $home_website=$('#home-website'),
 
 /*notifacation display */
 

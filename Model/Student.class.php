@@ -4,6 +4,7 @@
   include ('User.class.php');
   class Student extends User
 {
+private $student_id;
 private $student_birthday;
 private $student_f_name;
 private $student_l_name;
@@ -19,6 +20,10 @@ function __construct($user_mail, $user_password, $user_profile_picture, $user_ty
 
 /*getter + setters*/
 //getters
+public function getStudent_id()
+    {
+        return $this->student_id;
+    }
 public function getBirthday()
     {
         return $this->student_birthday;
@@ -33,6 +38,11 @@ public function getL_name()
     }
 
 //setters
+public function setStudent_id($student_id)
+    {
+        $this->student_id = $student_id;
+        return $this;
+    }
 public function setBirthday($student_birthday)
     {
         $this->student_birthday = $student_birthday;

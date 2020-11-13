@@ -17,8 +17,7 @@
 
    	 	<div class="row">
    	 		<div class="col-md-4  col-lg-4  col-lg-push-4">
-   	 			<h1>EnsiasEvntLogo :    <?php foreach($users as $row){
-                          echo $row["user_mail"] ;}?> </h1>
+   	 			<h1>eee ensias logogogj </h1>
    	 		</div>
    	 	</div>
 

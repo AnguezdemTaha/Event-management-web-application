@@ -3,14 +3,14 @@
   //include('formNewEmploye.php');
   include('../Model/event.class.php');
 
-  class controlleur {
+  class controlleur_event {
   private $action;
   private $model;
   private $vue;
 
   public function __construct()
   {
-  $this->model=new Model_user ();
+  $this->model=new Model_event();
   $this->action="allusers";
   }
 
@@ -18,9 +18,10 @@
     $events=$this->model->selectAllEvents();
     echo json_encode($events); 
     }
-  public function selectEventByIdAction(){
-    $event_id= $_POST["event_id"];
-    $event=$this->model->selectEventById($event_id);
+  public function selectEventAction(){
+    $event= new Event();
+    $event->setId($_POST["event_id"]);
+    $event=$this->model->selectEventById($event);
     echo json_encode($event); 
     }
   public function selectEventWithAction(){
@@ -47,8 +48,8 @@
     $this->model->addEvent($event);    
     }
   public function updateEventAction(){
-    $event_id=$_POST["event_id"];
     $event= new Event();
+    $event->setName($_POST['event_id']);
     $event->setName($_POST['name']);
     $event->setStart_date($_POST['start_date']);
     $event->setEnd_date($_POST['end_date']);
@@ -60,32 +61,37 @@
     $club= new Club();
     //club from sessions
     $event->setClub($club);
-    $this->model->updateEvent($event, $event_id);   
+    $this->model->updateEvent($event);   
     }
   public function deleteEventAction(){
-    $event_id=$_GET["event_id"];
-    $this->model->deleteEvent($event_id);    
+    $event= new Event();
+    $event->setName($_POST['event_id']);
+    $this->model->deleteEvent($event);    
     }
 //
   public function selectAllEventFeedbacksAction(){
-    $event_id=$_GET["event_id"];
-    $feedbacks=$this->model->selectAllEventFeedbacks($event_id); 
+    $event= new Event();
+    $event->setName($_POST['event_id']);
+    $feedbacks=$this->model->selectAllEventFeedbacks($event); 
     echo json_encode($feedbacks);    
     }
   public function selectAllEventParticipationsAction(){
-    $event_id=$_GET["event_id"];
-    $participations=$this->model->selectAllEventParticipations($event_id);  
+    $event= new Event();
+    $event->setName($_POST['event_id']);
+    $participations=$this->model->selectAllEventParticipations($event);  
     echo json_encode($participations);    
     }
    public function selectAllEventReportsAction(){
-    $event_id=$_GET["event_id"];
-    $reports=$this->model->selectAllEventReports($event_id);
+    $event= new Event();
+    $event->setName($_POST['event_id']);
+    $reports=$this->model->selectAllEventReports($event);
     echo json_encode($reports); 
     }
-  //....
+
   public function selectAllEventCommentsAction(){
-    $event_id=$_GET["event_id"];
-    $comments=$this->model->selectAllEventComments($event_id);  
+    $event= new Event();
+    $event->setName($_POST['event_id']);
+    $comments=$this->model->selectAllEventComments($event);  
     echo json_encode($comments);  
     }
   public function selectEventCommentsWithAction(){
@@ -115,8 +121,8 @@
       case 'selectAllEvents' :
       $this->selectAllEventsAction();
       break;
-      case 'selectEventById' :
-      $this->selectEventByIdAction();
+      case 'selectEvent' :
+      $this->selectEventAction();
       break;
       case 'selectEventWith' :
       $this->selectEventWithAction();

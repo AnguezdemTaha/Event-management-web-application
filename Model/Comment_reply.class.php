@@ -2,6 +2,8 @@
   
   class Comment_reply
 {
+private $comment_reply_id;
+
 private $comment;
 private $user;
 private $reply_date;
@@ -16,6 +18,10 @@ function __construct($comment, $user, $reply_date, $reply_content) {
 
 /*getter + setters*/
 //getters
+public function getId()
+    {
+        return $this->comment_reply_id;
+    }
 public function getDate()
     {
         return $this->reply_date;
@@ -33,12 +39,17 @@ public function getContent()
         return $this->reply_content;
     }
 //setters
-public function setDate($comment_date)
+public function setDate($comment_reply_id)
+    {
+        $this->comment_reply_id = $comment_reply_date;
+        return $this;
+    }
+public function setDate($reply_date)
     {
         $this->reply_date = $reply_date;
         return $this;
     }
-public function setComment($event)
+public function setReply($event)
     {
         $this->comment = $comment;
         return $this;

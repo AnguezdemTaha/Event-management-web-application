@@ -17,7 +17,7 @@ $this->action="allusers";
 public function allAction()
 {
 $user= new User();
-$user->setMail($_POST['action']);
+$user->setMail("student1@ensias.com");
 $id_table=$this->modele->selectUserIdByMail($user);
 //$data=$users[0];
 //include('../Views/index.php');

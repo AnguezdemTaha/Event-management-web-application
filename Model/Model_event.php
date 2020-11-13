@@ -1,5 +1,5 @@
 <?php
-  include 'Db_connect.php';
+  //include 'Db_connect.php';
   //include 'user.class.php'
   class Model_event {
 
@@ -17,7 +17,7 @@
       
       $query=$this->db->prepare('select user_id from user  where user_mail= ?');
       $query->execute([$event->getUser()->getMail()]);
-      return $query->fetchAll();
+      $query->fetchAll();
       //return the id user club
       //selectidbymail for geting id studnet and ez add on the other table :studnet
       $id_table= $query->fetchAll();;//its a table
@@ -33,9 +33,9 @@
       $query->execute(['1']);
       return $query->fetchAll();
     }
-    public function selectEventById($event_id){
+    public function selectEvent($event){
       $query=$this->db->prepare('select * from event where event_id= ? and event_accepted= ?');
-      $query->execute([$event_id,"1"]);
+      $query->execute([$event->getId(),"1"]);
       return $query->fetchAll();
     }
 
@@ -47,52 +47,53 @@
     }
 
     public function addEvent($event){//used in send demand event bu the club
-      $user_id=$this->selectUserIdByEvent($event);
+      //$user_id=$this->selectUserIdByEvent($event);
       $query=$this->db->prepare('INSERT INTO event(`event_name`, `event_start_date`, `event_end_date`, `event_picture`, `event_description`, `event_accepted, `event_creation_date`, `user_id`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)');
-      $query->execute([$event->getName(), $event->getStart_date(), $event->getEnd_date(), $event->getPicture(), $event->getDescription(), $event->getAccepted(), $event->getCreation_date(), $user_id]); 
+      $query->execute([$event->getName(), $event->getStart_date(), $event->getEnd_date(), $event->getPicture(), $event->getDescription(), $event->getAccepted(), $event->getCreation_date(), $event->getUser()->getId()]); 
 
     }
-    public function updateEvent($event, $event_id){
+    public function updateEvent($event){
       $query=$this->db->prepare('UPDATE event set event_name = ?, event_start_date = ?, event_end_date = ?,
       event_picture = ?, event_description = ?, event_accepted= ?, event_creation_date= ?, user_id= ? WHERE event_id = ?');
-      $query->execute([$event->getName(), $event->getStart_date(), $event->getEnd_date(), $event->getPicture(), $event->getDescription(), $event->getAccepted(), $event->getCreation_date(), $event_id]);
+      $query->execute([$event->getName(), $event->getStart_date(), $event->getEnd_date(), $event->getPicture(), $event->getDescription(), $event->getAccepted(), $event->getCreation_date(), $event->getId()]);
     }
-    public function deleteEvent($event_id){
+    public function deleteEvent($event){
       $query=$this->db->prepare('DELETE FROM event WHERE event_id = ?');
-      $query->execute($event_id);
+      $query->execute($event->getId());
     }
 
     ////
 
-    public function selectAllEventFeedbacks($event_id){
+    public function selectAllEventFeedbacks($event){
       $query=$this->db->prepare('select * from event_feedback where event_id = ?');
-      $query->execute([$event_id]);
+      $query->execute([$event->getId()]);
       return $query->fetchAll();
     }
-    public function selectAllEventParticipations($event_id){
+    
+    public function selectAllEventParticipations($event){
       $query=$this->db->prepare('select * from event_participation where event_id = ?');
-      $query->execute([$event_id]);
+      $query->execute([$event->getId()]);
       return $query->fetchAll();
     }
-    public function selectAllEventReports($event_id){
+    public function selectAllEventReports($event){
       $query=$this->db->prepare('select * from event_report where event_id = ?');
-      $query->execute([$event_id]);
+      $query->execute([$event->getId()]);
       return $query->fetchAll();
     }
-    public function selectAllEventComments($event_id){
+    public function selectAllEventComments($event){
       $query=$this->db->prepare('select * from event_comment where event_id = ?');
-      $query->execute([$event_id]);
+      $query->execute([$event->getId()]);
       return $query->fetchAll();
     }
     //factors like average max min ... if we need them ofc
-    public function selectAverageEventFeedbacks($event_id){
+    public function selectAverageEventFeedbacks($event){
       $query=$this->db->prepare('select AVG(feedback_note) from event_feedback where event_id = ?');
-      $query->execute([$event_id]);
+      $query->execute([$event->getId()]);
       return $query->fetchAll();
     }
-    public function selectCountEventParticipations($event_id){
+    public function selectCountEventParticipations($event){
       $query=$this->db->prepare('select COUNT(*) from event_participation where event_id = ?');
-      $query->execute([$event_id]);
+      $query->execute([$event->getId()]);
       return $query->fetchAll();
     }
 

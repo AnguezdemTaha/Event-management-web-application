@@ -27,21 +27,21 @@
       return $user_id;
     }
 
-    public function selectParticipationById($participation_id){
+    public function selectParticipation($participation){
       $query=$this->db->prepare('select * from event_participation where participation_id= ?');
-      $query->execute([$participation_id]);
+      $query->execute([$participation->getId()]);
       return $query->fetchAll();
     }
 
     
-    public function addParticipation($participation, $participation_id,){//used in send demand event bu the club  rq: comment containe attr user so no neeed to declare user too in attr
+    public function addParticipation($participation){//used in send demand event bu the club  rq: comment containe attr user so no neeed to declare user too in attr
       $user_id=$this->selectUserIdByEvent($participation);
       $query=$this->db->prepare('INSERT INTO event_participation (`user_id`, `event_id`,`participation_date`) VALUES (?, ?, ?, ?)');
-      $query->execute([$user_id, $event_id, $participation->getDate()]); 
+      $query->execute([$participation->getUser()->getId(), $participation->getEvent()->getId(), $participation->getDate()]); 
     }
-    public function deleteParticipation($participation_id){
+    public function deleteParticipation($participation){
       $query=$this->db->prepare('DELETE FROM event_participation WHERE participation_id = ?');
-      $query->execute($participation_id);
+      $query->execute($participation->getId());
     }
     ////
     
